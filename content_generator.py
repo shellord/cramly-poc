@@ -61,7 +61,8 @@ Format your response to start with the detailed content of the lesson. Keep the 
             for attempt in range(max_retries):
                 try:
                     response = await self.client.chat.completions.create(
-                        model="gpt-4.1-nano",
+                        # model="gpt-4.1-nano",
+                        model="gpt-3.5-turbo",
                         messages=[
                             {"role": "system", "content": system_prompt},
                             {"role": "user", "content": prompt}
