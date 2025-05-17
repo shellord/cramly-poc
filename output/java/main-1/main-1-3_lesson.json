@@ -1,0 +1,4 @@
+{
+  "description": "Introduction to Java Development Kit (JDK)",
+  "content": "The Java Development Kit (JDK) is a set of tools that developers use to develop Java applications. It includes the Java Runtime Environment (JRE), an interpreter/loader (Java), a compiler (javac), an archiver (jar), a documentation generator (Javadoc), and other tools necessary for Java development. Understanding the JDK is crucial for Java developers as it provides everything needed to write, compile, and run Java code."
+}

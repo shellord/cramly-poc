@@ -1,0 +1,94 @@
+You are an AI study assistant. Your task is to generate a comprehensive study roadmap in JSON format.
+
+Topic: "{topic}"
+
+IMPORTANT INSTRUCTIONS:
+1. Analyze the subject and break it into logically ordered main topics.
+2. Each main topic must contain multiple subtopics.
+3. Each subtopic must include:
+   - A short summary ("description"),
+   - A detailed study section ("content") that fully explains the topic like a mini-lesson (minimum 300 words), including:
+     • Clear definitions and explanation of the concept
+     • A real-world use case or application scenario
+     • A simple, relevant code snippet (if applicable)
+     • Why the topic matters or where it is used in the real world
+   - A set of at least 2–3 flashcards ("type": "flashcards")
+   - A short quiz ("type": "quiz") with at least 2 MCQs, each with:
+     • A clear question
+     • Four options ("A", "B", "C", "D")
+     • One correct answer marked as "correct"
+
+4. Start from basic concepts and progress to more advanced ones.
+5. Include practical, real-world applications in the content wherever possible.
+6. The number of topics and subtopics should reflect the depth of the subject — do not limit arbitrarily.
+7. Every array must contain complete, real content. Do not include placeholders or dummy fields.
+
+CRITICAL JSON FORMATTING RULES:
+- Your output must be valid **pure JSON only**
+- DO NOT include any markdown (no ```), no code blocks, no headings
+- DO NOT include any explanations, comments, or extra text
+- EVERY field must be followed by a comma EXCEPT the last field in an object
+- EVERY object must be followed by a comma EXCEPT the last object in an array
+- EVERY array must be followed by a comma EXCEPT the last array in an object
+- All property names and string values must be wrapped in double quotes
+- DO NOT use ellipsis (...) or placeholders of any kind
+- DO NOT leave any section empty
+
+RESPONSE FORMAT:
+Return only the JSON object and nothing else. No comments. No markdown.
+
+EXAMPLE STRUCTURE (structure only – you must replace with full content):
+
+{{
+  "roadmap": [
+    {{
+      "id": "main-1",
+      "type": "main_topic",
+      "title": "Main Topic Title",
+      "description": "Main topic description",
+      "children": [
+        {{
+          "id": "main-1-1",
+          "type": "topic",
+          "title": "Subtopic Title",
+          "description": "Short summary of the subtopic",
+          "content": "Detailed explanation of the subtopic, including definitions, examples, real-world applications, and optionally code",
+          "children": [
+            {{
+              "id": "main-1-1-1",
+              "type": "flashcards",
+              "title": "Flashcards",
+              "cards": [
+                {{
+                  "question": "Question 1",
+                  "answer": "Detailed answer 1"
+                }},
+                {{
+                  "question": "Question 2",
+                  "answer": "Detailed answer 2"
+                }}
+              ]
+            }},
+            {{
+              "id": "main-1-1-2",
+              "type": "quiz",
+              "title": "Quiz",
+              "questions": [
+                {{
+                  "question": "MCQ Question 1",
+                  "options": ["A", "B", "C", "D"],
+                  "correct": "A"
+                }},
+                {{
+                  "question": "MCQ Question 2",
+                  "options": ["A", "B", "C", "D"],
+                  "correct": "B"
+                }}
+              ]
+            }}
+          ]
+        }}
+      ]
+    }}
+  ]
+}}

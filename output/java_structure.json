@@ -1,0 +1,238 @@
+{
+  "topics": [
+    {
+      "id": "main-1",
+      "title": "Introduction to Java",
+      "subtopics": [
+        {
+          "id": "main-1-1",
+          "title": "History of Java"
+        },
+        {
+          "id": "main-1-2",
+          "title": "Java Virtual Machine (JVM)"
+        },
+        {
+          "id": "main-1-3",
+          "title": "Java Development Kit (JDK)"
+        },
+        {
+          "id": "main-1-4",
+          "title": "Basic Syntax and Structure"
+        },
+        {
+          "id": "main-1-5",
+          "title": "Object-Oriented Programming (OOP) in Java"
+        },
+        {
+          "id": "main-1-6",
+          "title": "Data Types and Variables"
+        },
+        {
+          "id": "main-1-7",
+          "title": "Control Flow Statements"
+        },
+        {
+          "id": "main-1-8",
+          "title": "Exception Handling"
+        },
+        {
+          "id": "main-1-9",
+          "title": "Common IDEs for Java Development"
+        }
+      ]
+    },
+    {
+      "id": "main-2",
+      "title": "Java Programming Basics",
+      "subtopics": [
+        {
+          "id": "main-2-1",
+          "title": "Methods and Functions"
+        },
+        {
+          "id": "main-2-2",
+          "title": "Arrays and Collections"
+        },
+        {
+          "id": "main-2-3",
+          "title": "Inheritance and Polymorphism"
+        },
+        {
+          "id": "main-2-4",
+          "title": "Interfaces and Abstract Classes"
+        },
+        {
+          "id": "main-2-5",
+          "title": "Packages and Access Modifiers"
+        },
+        {
+          "id": "main-2-6",
+          "title": "File I/O Operations"
+        },
+        {
+          "id": "main-2-7",
+          "title": "Regular Expressions in Java"
+        },
+        {
+          "id": "main-2-8",
+          "title": "Error Handling and Debugging Techniques"
+        },
+        {
+          "id": "main-2-9",
+          "title": "Java Generics"
+        }
+      ]
+    },
+    {
+      "id": "main-3",
+      "title": "Object-Oriented Programming in Java",
+      "subtopics": [
+        {
+          "id": "main-3-1",
+          "title": "Class and Object Concepts"
+        },
+        {
+          "id": "main-3-2",
+          "title": "Encapsulation and Access Control"
+        },
+        {
+          "id": "main-3-3",
+          "title": "Inheritance and Overriding"
+        },
+        {
+          "id": "main-3-4",
+          "title": "Polymorphism and Dynamic Binding"
+        },
+        {
+          "id": "main-3-5",
+          "title": "Abstract Classes vs. Interfaces"
+        },
+        {
+          "id": "main-3-6",
+          "title": "Method Overloading and Overriding"
+        },
+        {
+          "id": "main-3-7",
+          "title": "Static vs. Instance Members"
+        },
+        {
+          "id": "main-3-8",
+          "title": "Nested Classes and Inner Classes"
+        },
+        {
+          "id": "main-3-9",
+          "title": "Design Patterns in Java"
+        }
+      ]
+    },
+    {
+      "id": "main-4",
+      "title": "Java Collections Framework",
+      "subtopics": [
+        {
+          "id": "main-4-1",
+          "title": "ArrayList and LinkedList"
+        },
+        {
+          "id": "main-4-2",
+          "title": "HashMap and HashTable"
+        },
+        {
+          "id": "main-4-3",
+          "title": "Set Interface and TreeSet"
+        },
+        {
+          "id": "main-4-4",
+          "title": "Queue Interface and PriorityQueue"
+        },
+        {
+          "id": "main-4-5",
+          "title": "Map Interface and TreeMap"
+        },
+        {
+          "id": "main-4-6",
+          "title": "Collections Class and Utility Methods"
+        }
+      ]
+    },
+    {
+      "id": "main-5",
+      "title": "Concurrency in Java",
+      "subtopics": [
+        {
+          "id": "main-5-1",
+          "title": "Introduction to Threads"
+        },
+        {
+          "id": "main-5-2",
+          "title": "Thread States and Lifecycle"
+        },
+        {
+          "id": "main-5-3",
+          "title": "Synchronization and Locks"
+        },
+        {
+          "id": "main-5-4",
+          "title": "Thread Pools and Executors"
+        },
+        {
+          "id": "main-5-5",
+          "title": "Java Memory Model"
+        }
+      ]
+    },
+    {
+      "id": "main-6",
+      "title": "Java Networking and Database Connectivity",
+      "subtopics": [
+        {
+          "id": "main-6-1",
+          "title": "Client-Server Architecture"
+        },
+        {
+          "id": "main-6-2",
+          "title": "Socket Programming"
+        },
+        {
+          "id": "main-6-3",
+          "title": "HTTP Requests in Java"
+        },
+        {
+          "id": "main-6-4",
+          "title": "Database Connectivity with JDBC"
+        },
+        {
+          "id": "main-6-5",
+          "title": "Object-Relational Mapping (ORM)"
+        }
+      ]
+    },
+    {
+      "id": "main-7",
+      "title": "Java GUI Development",
+      "subtopics": [
+        {
+          "id": "main-7-1",
+          "title": "Swing and JavaFX"
+        },
+        {
+          "id": "main-7-2",
+          "title": "Event Handling in GUIs"
+        },
+        {
+          "id": "main-7-3",
+          "title": "Layout Managers in Java"
+        },
+        {
+          "id": "main-7-4",
+          "title": "Graphics and Animation in Java"
+        },
+        {
+          "id": "main-7-5",
+          "title": "Custom Components and Controls"
+        }
+      ]
+    }
+  ]
+}

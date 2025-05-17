@@ -1,0 +1,4 @@
+{
+  "description": "Java Virtual Machine (JVM)",
+  "content": "Java Virtual Machine (JVM) is a crucial component of Java programming that provides a runtime environment for executing Java bytecode. It plays a vital role in the platform independence and portability of Java programs. Understanding JVM is essential for Java developers to optimize performance and ensure cross-platform compatibility."
+}
