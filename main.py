@@ -5,17 +5,7 @@ from topic_generator import TopicGenerator
 from content_generator import ContentGenerator
 from assessment_generator import AssessmentGenerator
 
-def main():
-    load_dotenv()
-    
-    parser = argparse.ArgumentParser(description="Generate a study roadmap for any subject")
-    parser.add_argument("--topic", type=str, help="Subject to generate a topic structure for")
-    args = parser.parse_args()
-    
-    topic = args.topic
-    if not topic:
-        topic = input("Enter a subject to generate a topic structure for: ")
-    
+def generate_study_roadmap(topic):
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI_API_KEY not found in environment variables. Please check your .env file.")
@@ -39,6 +29,21 @@ def main():
     
     print("\n✨ Success! Generated complete study roadmap with lessons, flashcards, and quizzes.")
     print(f"📂 Final roadmap saved to: output/{topic.lower()}_roadmap.json")
+    
+    return roadmap
+
+def main():
+    load_dotenv()
+    
+    parser = argparse.ArgumentParser(description="Generate a study roadmap for any subject")
+    parser.add_argument("--topic", type=str, help="Subject to generate a topic structure for")
+    args = parser.parse_args()
+    
+    topic = args.topic
+    if not topic:
+        topic = input("Enter a subject to generate a topic structure for: ")
+    
+    generate_study_roadmap(topic)
 
 if __name__ == "__main__":
     main()
