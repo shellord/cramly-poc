@@ -25,15 +25,17 @@ def main():
     topic_generator = TopicGenerator(api_key)
     topic_structure = topic_generator.generate_topic_structure(topic)
     
-    # Step 2: Generate lesson content for each subtopic
+    # Step 2: Generate lesson content for each subtopic (using async method)
     print("\n📝 STEP 2: Generating lesson content...")
     content_generator = ContentGenerator(api_key)
-    lesson_content = content_generator.generate_all_lesson_content(topic, topic_structure)
+    # Use the sync wrapper function that internally runs the async function
+    lesson_content = content_generator.generate_all_lesson_content_sync(topic, topic_structure)
     
-    # Step 3: Generate flashcards and quiz questions and build roadmap
+    # Step 3: Generate flashcards and quiz questions and build roadmap (using async method)
     print("\n📚 STEP 3: Generating flashcards and quizzes...")
     assessment_generator = AssessmentGenerator(api_key)
-    roadmap = assessment_generator.enhance_all_content(topic, topic_structure, lesson_content)
+    # Use the sync wrapper function that internally runs the async function
+    roadmap = assessment_generator.enhance_all_content_sync(topic, topic_structure, lesson_content)
     
     print("\n✨ Success! Generated complete study roadmap with lessons, flashcards, and quizzes.")
     print(f"📂 Final roadmap saved to: output/{topic.lower()}_roadmap.json")

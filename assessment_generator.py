@@ -1,7 +1,9 @@
 import json
 import os
 import time
-from openai import OpenAI
+import asyncio
+import aiofiles
+from openai import AsyncOpenAI
 
 # Assessment content schema definition
 ASSESSMENT_SCHEMA = {
@@ -64,11 +66,12 @@ ASSESSMENT_SCHEMA = {
 class AssessmentGenerator:
     def __init__(self, api_key):
         """Initialize the AssessmentGenerator with an OpenAI API key"""
-        self.client = OpenAI(api_key=api_key)
+        self.client = AsyncOpenAI(api_key=api_key)
         self.output_dir = "output"
         os.makedirs(self.output_dir, exist_ok=True)
+        self.semaphore = asyncio.Semaphore(10)  # Limit to 10 concurrent requests
     
-    def generate_assessments(self, topic, main_topic, subtopic, lesson_content):
+    async def generate_assessments(self, topic, main_topic, subtopic, lesson_content):
         """Generate flashcards and quiz questions for a specific subtopic based on its lesson content"""
         subtopic_title = subtopic["title"]
         main_topic_title = main_topic["title"]
@@ -105,64 +108,67 @@ IMPORTANT:
         
         # Maximum retries for API calls
         max_retries = 3
-        for attempt in range(max_retries):
-            try:
-                response = self.client.chat.completions.create(
-                    model="gpt-3.5-turbo-0125",
-                    messages=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": prompt}
-                    ],
-                    tools=[{"type": "function", "function": ASSESSMENT_SCHEMA}],
-                    tool_choice={"type": "function", "function": {"name": "generate_assessments"}}
-                )
-                
-                # Extract the function arguments from the response
-                function_args = json.loads(response.choices[0].message.tool_calls[0].function.arguments)
-                
-                # Save result to nested directory structure
-                subtopic_dir = f"{self.output_dir}/{topic.lower()}/{main_topic['id']}"
-                os.makedirs(subtopic_dir, exist_ok=True)
-                
-                output_file = f"{subtopic_dir}/{subtopic['id']}_assessments.json"
-                with open(output_file, "w") as f:
-                    json.dump(function_args, f, indent=2)
-                
-                print(f"✅ Generated {len(function_args['flashcards'])} flashcards and {len(function_args['quiz'])} quiz questions for: {subtopic_title}")
-                return function_args
-                
-            except Exception as e:
-                if attempt < max_retries - 1:
-                    print(f"Error generating assessments for {subtopic_title}: {str(e)}. Retrying ({attempt+1}/{max_retries})...")
-                    time.sleep(2)  # Wait before retrying
-                else:
-                    print(f"Failed after {max_retries} attempts for {subtopic_title}: {str(e)}")
-                    # Return minimal content as fallback
-                    return {
-                        "flashcards": [
-                            {"question": f"What is {subtopic_title}?", "answer": f"See lesson content for details on {subtopic_title}."},
-                            {"question": f"Why is {subtopic_title} important?", "answer": f"It's a key concept in {main_topic_title}."}
+        
+        async with self.semaphore:  # Limit concurrent requests
+            for attempt in range(max_retries):
+                try:
+                    response = await self.client.chat.completions.create(
+                        model="gpt-3.5-turbo-0125",
+                        messages=[
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": prompt}
                         ],
-                        "quiz": [
-                            {
-                                "question": f"Which of the following best describes {subtopic_title}?",
-                                "options": [
-                                    "A specific concept in the subject",
-                                    "Unrelated to the subject",
-                                    "Too broad to define",
-                                    "None of the above"
-                                ],
-                                "correct": "A"
-                            }
-                        ]
-                    }
+                        tools=[{"type": "function", "function": ASSESSMENT_SCHEMA}],
+                        tool_choice={"type": "function", "function": {"name": "generate_assessments"}}
+                    )
+                    
+                    # Extract the function arguments from the response
+                    function_args = json.loads(response.choices[0].message.tool_calls[0].function.arguments)
+                    
+                    # Save result to nested directory structure
+                    subtopic_dir = f"{self.output_dir}/{topic.lower()}/{main_topic['id']}"
+                    os.makedirs(subtopic_dir, exist_ok=True)
+                    
+                    output_file = f"{subtopic_dir}/{subtopic['id']}_assessments.json"
+                    async with aiofiles.open(output_file, "w") as f:
+                        await f.write(json.dumps(function_args, indent=2))
+                    
+                    print(f"✅ Generated {len(function_args['flashcards'])} flashcards and {len(function_args['quiz'])} quiz questions for: {subtopic_title}")
+                    return function_args
+                    
+                except Exception as e:
+                    if attempt < max_retries - 1:
+                        print(f"Error generating assessments for {subtopic_title}: {str(e)}. Retrying ({attempt+1}/{max_retries})...")
+                        await asyncio.sleep(2)  # Wait before retrying
+                    else:
+                        print(f"Failed after {max_retries} attempts for {subtopic_title}: {str(e)}")
+                        # Return minimal content as fallback
+                        return {
+                            "flashcards": [
+                                {"question": f"What is {subtopic_title}?", "answer": f"See lesson content for details on {subtopic_title}."},
+                                {"question": f"Why is {subtopic_title} important?", "answer": f"It's a key concept in {main_topic_title}."}
+                            ],
+                            "quiz": [
+                                {
+                                    "question": f"Which of the following best describes {subtopic_title}?",
+                                    "options": [
+                                        "A specific concept in the subject",
+                                        "Unrelated to the subject",
+                                        "Too broad to define",
+                                        "None of the above"
+                                    ],
+                                    "correct": "A"
+                                }
+                            ]
+                        }
     
-    def enhance_all_content(self, topic, topic_structure, lesson_content):
+    async def enhance_all_content(self, topic, topic_structure, lesson_content):
         """Generate assessments for all subtopics and integrate with lesson content"""
         print(f"\n🔄 Generating flashcards and quizzes for all subtopics in {topic}...")
         
         # Create a roadmap structure with flashcards and quizzes
         roadmap = {"roadmap": []}
+        tasks = []
         
         # Process each main topic and its subtopics
         for main_topic in topic_structure["topics"]:
@@ -182,54 +188,70 @@ IMPORTANT:
             
             # Process each subtopic
             for subtopic in main_topic["subtopics"]:
-                subtopic_id = subtopic["id"]
-                subtopic_title = subtopic["title"]
-                
-                # Get the existing lesson content
-                subtopic_content = lesson_content[main_topic_id]["subtopics"].get(subtopic_id, {})
-                if not subtopic_content:
-                    print(f"Warning: No lesson content found for {subtopic_title}, skipping assessments...")
-                    continue
-                
-                # Generate assessments based on the lesson content
-                assessments = self.generate_assessments(topic, main_topic, subtopic, subtopic_content)
-                
-                # Create subtopic node with content and assessments
-                subtopic_node = {
-                    "id": subtopic_id,
-                    "type": "topic",
-                    "title": subtopic_title,
-                    "description": subtopic_content.get("description", ""),
-                    "content": subtopic_content.get("content", ""),
-                    "children": [
-                        {
-                            "id": f"{subtopic_id}-1",
-                            "type": "flashcards",
-                            "title": "Flashcards",
-                            "cards": assessments["flashcards"]
-                        },
-                        {
-                            "id": f"{subtopic_id}-2",
-                            "type": "quiz",
-                            "title": "Quiz",
-                            "questions": assessments["quiz"]
-                        }
-                    ]
-                }
-                
-                # Add subtopic node to main topic
-                main_topic_node["children"].append(subtopic_node)
-                
-                # Add a small delay to avoid rate limiting
-                time.sleep(0.5)
+                # Add task to process subtopic
+                task = self.process_subtopic(topic, main_topic, subtopic, main_topic_node, lesson_content)
+                tasks.append(task)
             
             # Add main topic to roadmap
             roadmap["roadmap"].append(main_topic_node)
         
+        # Wait for all tasks to complete
+        await asyncio.gather(*tasks)
+        
         # Save the complete roadmap
         output_file = f"{self.output_dir}/{topic.lower()}_roadmap.json"
-        with open(output_file, "w") as f:
-            json.dump(roadmap, f, indent=2)
+        async with aiofiles.open(output_file, "w") as f:
+            await f.write(json.dumps(roadmap, indent=2))
         
         print(f"\n✅ Complete roadmap with all content and assessments saved to: {output_file}")
-        return roadmap 
+        return roadmap
+    
+    async def process_subtopic(self, topic, main_topic, subtopic, main_topic_node, lesson_content):
+        """Process a single subtopic and update the main_topic_node"""
+        subtopic_id = subtopic["id"]
+        subtopic_title = subtopic["title"]
+        
+        # Get the existing lesson content
+        subtopic_content = lesson_content[main_topic["id"]]["subtopics"].get(subtopic_id, {})
+        if not subtopic_content:
+            print(f"Warning: No lesson content found for {subtopic_title}, skipping assessments...")
+            return
+        
+        # Generate assessments based on the lesson content
+        assessments = await self.generate_assessments(topic, main_topic, subtopic, subtopic_content)
+        
+        # Create subtopic node with content and assessments
+        subtopic_node = {
+            "id": subtopic_id,
+            "type": "topic",
+            "title": subtopic_title,
+            "description": subtopic_content.get("description", ""),
+            "content": subtopic_content.get("content", ""),
+            "children": [
+                {
+                    "id": f"{subtopic_id}-1",
+                    "type": "flashcards",
+                    "title": "Flashcards",
+                    "cards": assessments["flashcards"]
+                },
+                {
+                    "id": f"{subtopic_id}-2",
+                    "type": "quiz",
+                    "title": "Quiz",
+                    "questions": assessments["quiz"]
+                }
+            ]
+        }
+        
+        # Add subtopic node to main topic
+        main_topic_node["children"].append(subtopic_node)
+
+# For compatibility with synchronous code
+def sync_wrapper(async_func):
+    """Wrapper to call async functions from synchronous code"""
+    def wrapper(*args, **kwargs):
+        return asyncio.run(async_func(*args, **kwargs))
+    return wrapper
+
+# Create synchronous versions of the async methods
+AssessmentGenerator.enhance_all_content_sync = sync_wrapper(AssessmentGenerator.enhance_all_content) 

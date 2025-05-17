@@ -2,235 +2,218 @@
   "topics": [
     {
       "id": "main-1",
-      "title": "Introduction to Java",
+      "title": "Basic Concepts",
       "subtopics": [
         {
           "id": "main-1-1",
-          "title": "History of Java"
+          "title": "Variables and Data Types",
+          "description": "Understanding how variables store data and the different data types in Java."
         },
         {
           "id": "main-1-2",
-          "title": "Java Virtual Machine (JVM)"
+          "title": "Operators",
+          "description": "Exploring various operators like arithmetic, relational, and logical operators in Java."
         },
         {
           "id": "main-1-3",
-          "title": "Java Development Kit (JDK)"
+          "title": "Control Flow",
+          "description": "Learning about decision-making constructs such as if-else, switch, and loops in Java."
         },
         {
           "id": "main-1-4",
-          "title": "Basic Syntax and Structure"
+          "title": "Methods",
+          "description": "Defining and using methods to encapsulate reusable code in Java."
         },
         {
           "id": "main-1-5",
-          "title": "Object-Oriented Programming (OOP) in Java"
-        },
-        {
-          "id": "main-1-6",
-          "title": "Data Types and Variables"
-        },
-        {
-          "id": "main-1-7",
-          "title": "Control Flow Statements"
-        },
-        {
-          "id": "main-1-8",
-          "title": "Exception Handling"
-        },
-        {
-          "id": "main-1-9",
-          "title": "Common IDEs for Java Development"
+          "title": "Classes and Objects",
+          "description": "Introducing the concept of classes and objects in object-oriented programming."
         }
       ]
     },
     {
       "id": "main-2",
-      "title": "Java Programming Basics",
+      "title": "Arrays and Collections",
       "subtopics": [
         {
           "id": "main-2-1",
-          "title": "Methods and Functions"
+          "title": "Arrays",
+          "description": "Understanding the creation, manipulation, and traversal of arrays in Java."
         },
         {
           "id": "main-2-2",
-          "title": "Arrays and Collections"
+          "title": "ArrayList",
+          "description": "Exploring the dynamic array implementation in Java Collections."
         },
         {
           "id": "main-2-3",
-          "title": "Inheritance and Polymorphism"
+          "title": "LinkedList",
+          "description": "Understanding the linked list data structure and its implementation in Java."
         },
         {
           "id": "main-2-4",
-          "title": "Interfaces and Abstract Classes"
+          "title": "HashMap",
+          "description": "Explaining the key-value mapping and hash table implementation in Java."
         },
         {
           "id": "main-2-5",
-          "title": "Packages and Access Modifiers"
-        },
-        {
-          "id": "main-2-6",
-          "title": "File I/O Operations"
-        },
-        {
-          "id": "main-2-7",
-          "title": "Regular Expressions in Java"
-        },
-        {
-          "id": "main-2-8",
-          "title": "Error Handling and Debugging Techniques"
-        },
-        {
-          "id": "main-2-9",
-          "title": "Java Generics"
+          "title": "Set Interface",
+          "description": "Introducing the set interface and its implementations like HashSet and TreeSet."
         }
       ]
     },
     {
       "id": "main-3",
-      "title": "Object-Oriented Programming in Java",
+      "title": "Object-Oriented Programming",
       "subtopics": [
         {
           "id": "main-3-1",
-          "title": "Class and Object Concepts"
+          "title": "Inheritance",
+          "description": "Understanding how classes can inherit attributes and methods from other classes in Java."
         },
         {
           "id": "main-3-2",
-          "title": "Encapsulation and Access Control"
+          "title": "Polymorphism",
+          "description": "Exploring the ability of objects to take on multiple forms in Java."
         },
         {
           "id": "main-3-3",
-          "title": "Inheritance and Overriding"
+          "title": "Abstraction",
+          "description": "Discussing the concept of abstraction to hide complex implementation details."
         },
         {
           "id": "main-3-4",
-          "title": "Polymorphism and Dynamic Binding"
+          "title": "Encapsulation",
+          "description": "Explaining data hiding and encapsulation of data within objects."
         },
         {
           "id": "main-3-5",
-          "title": "Abstract Classes vs. Interfaces"
-        },
-        {
-          "id": "main-3-6",
-          "title": "Method Overloading and Overriding"
-        },
-        {
-          "id": "main-3-7",
-          "title": "Static vs. Instance Members"
-        },
-        {
-          "id": "main-3-8",
-          "title": "Nested Classes and Inner Classes"
-        },
-        {
-          "id": "main-3-9",
-          "title": "Design Patterns in Java"
+          "title": "Interfaces",
+          "description": "Defining interfaces and implementing multiple inheritance using interfaces in Java."
         }
       ]
     },
     {
       "id": "main-4",
-      "title": "Java Collections Framework",
+      "title": "Exception Handling",
       "subtopics": [
         {
           "id": "main-4-1",
-          "title": "ArrayList and LinkedList"
+          "title": "Try-Catch Blocks",
+          "description": "Learning how to handle exceptions using try-catch blocks in Java."
         },
         {
           "id": "main-4-2",
-          "title": "HashMap and HashTable"
+          "title": "Throw and Throws",
+          "description": "Understanding the throw and throws keywords for custom exceptions and method signatures."
         },
         {
           "id": "main-4-3",
-          "title": "Set Interface and TreeSet"
+          "title": "Finally Block",
+          "description": "Exploring the finally block for code that must execute regardless of exceptions."
         },
         {
           "id": "main-4-4",
-          "title": "Queue Interface and PriorityQueue"
+          "title": "Exception Types",
+          "description": "Identifying different types of exceptions and their handling in Java."
         },
         {
           "id": "main-4-5",
-          "title": "Map Interface and TreeMap"
-        },
-        {
-          "id": "main-4-6",
-          "title": "Collections Class and Utility Methods"
+          "title": "Custom Exceptions",
+          "description": "Creating custom exception classes for specific error scenarios."
         }
       ]
     },
     {
       "id": "main-5",
-      "title": "Concurrency in Java",
+      "title": "File Handling",
       "subtopics": [
         {
           "id": "main-5-1",
-          "title": "Introduction to Threads"
+          "title": "File Input and Output",
+          "description": "Reading from and writing to files using file input and output streams."
         },
         {
           "id": "main-5-2",
-          "title": "Thread States and Lifecycle"
+          "title": "Buffered Reader and Writer",
+          "description": "Using buffered reader and writer for efficient file reading and writing."
         },
         {
           "id": "main-5-3",
-          "title": "Synchronization and Locks"
+          "title": "Serialization",
+          "description": "Understanding object serialization for persisting object state in files."
         },
         {
           "id": "main-5-4",
-          "title": "Thread Pools and Executors"
+          "title": "File Handling Best Practices",
+          "description": "Discussing best practices for file handling to ensure data integrity and security."
         },
         {
           "id": "main-5-5",
-          "title": "Java Memory Model"
+          "title": "Working with Directories",
+          "description": "Manipulating directories, listing files, and managing file systems in Java."
         }
       ]
     },
     {
       "id": "main-6",
-      "title": "Java Networking and Database Connectivity",
+      "title": "Concurrency",
       "subtopics": [
         {
           "id": "main-6-1",
-          "title": "Client-Server Architecture"
+          "title": "Threads",
+          "description": "Introduction to threads for concurrent execution of tasks in Java."
         },
         {
           "id": "main-6-2",
-          "title": "Socket Programming"
+          "title": "Synchronization",
+          "description": "Synchronizing threads to prevent race conditions and ensure data consistency."
         },
         {
           "id": "main-6-3",
-          "title": "HTTP Requests in Java"
+          "title": "Locks and Conditions",
+          "description": "Using explicit locks and conditions for advanced thread synchronization."
         },
         {
           "id": "main-6-4",
-          "title": "Database Connectivity with JDBC"
+          "title": "Executor Framework",
+          "description": "Utilizing executor framework for managing thread execution in Java."
         },
         {
           "id": "main-6-5",
-          "title": "Object-Relational Mapping (ORM)"
+          "title": "Atomic Variables",
+          "description": "Exploring atomic variables for thread-safe operations without explicit synchronization."
         }
       ]
     },
     {
       "id": "main-7",
-      "title": "Java GUI Development",
+      "title": "GUI Programming",
       "subtopics": [
         {
           "id": "main-7-1",
-          "title": "Swing and JavaFX"
+          "title": "Swing Components",
+          "description": "Creating GUI applications using Swing components like buttons, labels, and text fields."
         },
         {
           "id": "main-7-2",
-          "title": "Event Handling in GUIs"
+          "title": "Event Handling",
+          "description": "Handling user interactions and events in GUI applications."
         },
         {
           "id": "main-7-3",
-          "title": "Layout Managers in Java"
+          "title": "Layout Managers",
+          "description": "Understanding layout managers to organize GUI components on screens."
         },
         {
           "id": "main-7-4",
-          "title": "Graphics and Animation in Java"
+          "title": "Dialog Boxes",
+          "description": "Working with dialog boxes for user input, messages, and alerts."
         },
         {
           "id": "main-7-5",
-          "title": "Custom Components and Controls"
+          "title": "Custom GUI Design",
+          "description": "Designing custom GUIs with customized components and layouts."
         }
       ]
     }

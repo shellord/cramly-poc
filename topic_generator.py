@@ -37,9 +37,13 @@ TOPIC_STRUCTURE_SCHEMA = {
                                     "title": {
                                         "type": "string",
                                         "description": "Title of the subtopic - must be a specific concept, term, or method"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "A concise 1-2 sentence summary of the subtopic"
                                     }
                                 },
-                                "required": ["id", "title"]
+                                "required": ["id", "title", "description"]
                             }
                         }
                     },
@@ -70,6 +74,7 @@ Your task is to generate a detailed and structured topic breakdown for a given s
 1. Divide the subject into main topics that represent major domains or categories.
 2. Under each main topic, generate detailed subtopics.
 3. Subtopics should focus on **individual concepts**, **terms**, **classes**, **tools**, or **methods** — not broad chapter titles.
+4. Provide a concise 1-2 sentence description for each subtopic.
 
 📌 Examples:
 - "Lists" is too broad → Split into: "ArrayList", "LinkedList", "Array vs List", "List operations"
@@ -79,13 +84,15 @@ Your task is to generate a detailed and structured topic breakdown for a given s
 - Be a **standalone learning unit**
 - Represent a concrete concept or feature
 - Be suitable for content, flashcards, and quizzes
-- Be something a student could Google individually"""
+- Be something a student could Google individually
+- Include a concise description that explains what it is"""
         
         prompt = f"""Generate a detailed and structured topic breakdown for: {topic}
 
 Create 7-9 main topics that comprehensively cover the subject from beginner to advanced concepts.
 For each main topic, provide exactly 5-10 specific subtopics that are concrete individual concepts.
 Each subtopic should be specific enough to be taught in a single lesson (e.g., 'HashMap Implementation' rather than just 'Maps').
+For each subtopic, include a concise 1-2 sentence description that explains what it is.
 Cover both fundamental concepts and advanced applications.
 Ensure subtopics are balanced in specificity and scope across all main topics.
 Assign proper IDs to main topics (main-1, main-2, etc.) and subtopics (main-1-1, main-1-2, etc.)."""
@@ -120,7 +127,7 @@ Assign proper IDs to main topics (main-1, main-2, etc.) and subtopics (main-1-1,
                 for i, main_topic in enumerate(function_args["topics"]):
                     print(f"\n{i+1}. {main_topic['title']}")
                     for j, subtopic in enumerate(main_topic["subtopics"]):
-                        print(f"   {i+1}.{j+1}. {subtopic['title']}")
+                        print(f"   {i+1}.{j+1}. {subtopic['title']} - {subtopic['description']}")
                 
                 return function_args
                 
