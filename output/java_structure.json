@@ -2,198 +2,198 @@
   "topics": [
     {
       "id": "main-1",
-      "title": "Java Basics",
+      "title": "Introduction to Java",
       "subtopics": [
         {
           "id": "main-1-1",
-          "title": "Variables and Data Types",
-          "description": "Explaining the basic building blocks of Java programs including int, double, char, and boolean."
+          "title": "Java Basics",
+          "description": "Basic syntax, data types, variables, and operators in Java"
         },
         {
           "id": "main-1-2",
-          "title": "Operators",
-          "description": "Covering arithmetic, logical, and relational operators used in Java programming."
+          "title": "Control Flow",
+          "description": "If statements, loops (for, while, do-while), and switch statements"
         },
         {
           "id": "main-1-3",
-          "title": "Control Flow Statements",
-          "description": "Introducing if-else, loops (for, while, do-while), and switch statements for program flow control."
+          "title": "Methods and Functions",
+          "description": "Declaring and invoking methods, return types, parameters, and method overloading"
         },
         {
           "id": "main-1-4",
-          "title": "Methods",
-          "description": "Defining methods, parameters, return types, and method overloading in Java functions."
+          "title": "Classes and Objects",
+          "description": "Defining classes, creating objects, constructors, and class members"
         },
         {
           "id": "main-1-5",
-          "title": "Classes and Objects",
-          "description": "Detailing the creation of classes, objects, constructors, and instance variables in Java programming."
+          "title": "Inheritance",
+          "description": "Extending classes, super keyword, method overriding, and superclasses and subclasses"
         }
       ]
     },
     {
       "id": "main-2",
-      "title": "Object-Oriented Programming",
+      "title": "Java Data Structures",
       "subtopics": [
         {
           "id": "main-2-1",
-          "title": "Inheritance",
-          "description": "Explaining how Java classes can inherit properties and behaviors from other classes."
+          "title": "Arrays",
+          "description": "Declaration, initialization, accessing elements, and array manipulation"
         },
         {
           "id": "main-2-2",
-          "title": "Polymorphism",
-          "description": "Covering method overriding, dynamic method dispatch, and compile-time polymorphism in Java."
+          "title": "Lists",
+          "description": "ArrayList, LinkedList, List interface, and list operations"
         },
         {
           "id": "main-2-3",
-          "title": "Encapsulation",
-          "description": "Discussing the concept of data hiding and access specifiers to achieve encapsulation in Java."
+          "title": "Maps",
+          "description": "HashMap, TreeMap, LinkedHashMap, key-value pairs, and map operations"
         },
         {
           "id": "main-2-4",
-          "title": "Abstraction",
-          "description": "Detailing abstract classes, interfaces, and abstract methods for achieving abstraction in Java programming."
+          "title": "Sets",
+          "description": "HashSet, TreeSet, LinkedHashSet, set operations, and set intersection/union"
         },
         {
           "id": "main-2-5",
-          "title": "Class Relationships",
-          "description": "Explaining associations, aggregations, and compositions between classes in Java."
+          "title": "Queues and Stacks",
+          "description": "Queue interface, Stack class, FIFO/LIFO, enqueue/dequeue, push/pop operations"
         }
       ]
     },
     {
       "id": "main-3",
-      "title": "Exception Handling",
+      "title": "Java Object-Oriented Programming",
       "subtopics": [
         {
           "id": "main-3-1",
-          "title": "Try-Catch Blocks",
-          "description": "Introducing try-catch blocks for handling exceptions and preventing program crashes."
+          "title": "Polymorphism",
+          "description": "Method overloading, method overriding, compile-time and runtime polymorphism"
         },
         {
           "id": "main-3-2",
-          "title": "Throw and Throws",
-          "description": "Explaining how to manually throw exceptions and declare checked exceptions using the 'throws' clause."
+          "title": "Encapsulation",
+          "description": "Access modifiers, data hiding, getters and setters, and information hiding"
         },
         {
           "id": "main-3-3",
-          "title": "Custom Exceptions",
-          "description": "Teaching the creation of user-defined exceptions to handle specific error conditions in Java programs."
+          "title": "Abstraction",
+          "description": "Abstract classes, abstract methods, interfaces, and implementing interfaces"
         },
         {
           "id": "main-3-4",
-          "title": "Finally Block",
-          "description": "Detailing the use of the 'finally' block to ensure cleanup code executes regardless of exceptions."
+          "title": "Static Keyword",
+          "description": "Static methods, static variables, static block, and static import"
+        },
+        {
+          "id": "main-3-5",
+          "title": "Final Keyword",
+          "description": "Final variables, final methods, final classes, and immutability"
         }
       ]
     },
     {
       "id": "main-4",
-      "title": "Collections",
+      "title": "Exception Handling",
       "subtopics": [
         {
           "id": "main-4-1",
-          "title": "ArrayList",
-          "description": "Detailing the implementation and usage of ArrayList for dynamically-sized arrays in Java."
+          "title": "Try-Catch Blocks",
+          "description": "Handling exceptions with try-catch, multiple catch blocks, and nested try-catch"
         },
         {
           "id": "main-4-2",
-          "title": "HashMap",
-          "description": "Explaining how HashMap stores key-value pairs and its methods like put(), get(), and remove()."
+          "title": "Throw and Throws",
+          "description": "Throwing exceptions, creating custom exceptions, and using the throws clause"
         },
         {
           "id": "main-4-3",
-          "title": "LinkedList",
-          "description": "Covering the features of LinkedList and its differences from ArrayList in Java collections."
+          "title": "Finally Block",
+          "description": "Cleanup operations, executing code regardless of exception, and resource management in finally block"
         },
         {
           "id": "main-4-4",
-          "title": "HashSet",
-          "description": "Introducing HashSet for storing unique elements and its common operations like add() and remove()."
+          "title": "Checked vs. Unchecked Exceptions",
+          "description": "Differences between checked exceptions (compile-time) and unchecked exceptions (runtime)"
         }
       ]
     },
     {
       "id": "main-5",
-      "title": "File Handling",
+      "title": "File Handling in Java",
       "subtopics": [
         {
           "id": "main-5-1",
           "title": "Reading and Writing Files",
-          "description": "Teaching how to read from and write to text files using FileReader, FileWriter, BufferedReader, and BufferedWriter."
+          "description": "File input and output streams, reading/writing text and binary files"
         },
         {
           "id": "main-5-2",
-          "title": "File Input/Output Streams",
-          "description": "Explaining FileInputStream and FileOutputStream for handling binary files in Java programs."
+          "title": "File Class Methods",
+          "description": "File class, create/delete files, check file existence, and file permissions"
         },
         {
           "id": "main-5-3",
-          "title": "Working with Directories",
-          "description": "Covering directory creation, file listing, and file deletion operations in Java using File class."
+          "title": "Serialization",
+          "description": "Object serialization, ObjectOutputStream, ObjectInputStream, and Serializable interface"
         },
         {
           "id": "main-5-4",
-          "title": "Serialization",
-          "description": "Detailing object serialization and deserialization to convert Java objects into byte streams for storage or transmission."
+          "title": "Buffered Readers and Writers",
+          "description": "Efficient reading and writing, BufferedReader, BufferedWriter, and handling large files"
         }
       ]
     },
     {
       "id": "main-6",
-      "title": "Concurrency",
+      "title": "Concurrency in Java",
       "subtopics": [
         {
           "id": "main-6-1",
-          "title": "Thread Basics",
-          "description": "Explaining thread creation, starting, and running in Java for concurrent execution."
+          "title": "Threads",
+          "description": "Creating threads, extending Thread class, implementing Runnable interface, thread lifecycle"
         },
         {
           "id": "main-6-2",
           "title": "Synchronization",
-          "description": "Introducing synchronized blocks and methods to manage thread access and avoid data inconsistency."
+          "description": "Synchronized keyword, synchronized methods, synchronized blocks, and thread safety"
         },
         {
           "id": "main-6-3",
-          "title": "Thread Safety",
-          "description": "Discussing thread safety concepts and techniques like using synchronized collections in Java programs."
+          "title": "Locks and Conditions",
+          "description": "ReentrantLock, Condition interface, tryLock(), lockInterruptibly(), and thread management"
         },
         {
           "id": "main-6-4",
-          "title": "Executor Framework",
-          "description": "Detailing the Executor interface and Executors class for task execution in a managed thread pool."
-        },
-        {
-          "id": "main-6-5",
-          "title": "Concurrency Utilities",
-          "description": "Covering Java utilities like CountDownLatch, Semaphore, and CyclicBarrier for synchronization and coordination."
+          "title": "Executors Framework",
+          "description": "Executor interfaces, ThreadPoolExecutor, ExecutorService, and managing thread execution"
         }
       ]
     },
     {
       "id": "main-7",
-      "title": "Networking",
+      "title": "Java Collections Framework",
       "subtopics": [
         {
           "id": "main-7-1",
-          "title": "Client-Server Architecture",
-          "description": "Explaining the client-server model and socket communication for network applications in Java."
+          "title": "Collection Interface",
+          "description": "List, Set, Queue interfaces, add/remove operations, and common methods"
         },
         {
           "id": "main-7-2",
-          "title": "URL and HttpURLConnection",
-          "description": "Detailing URL class for handling URLs and HttpURLConnection for making network requests in Java."
+          "title": "ArrayList and LinkedList",
+          "description": "Differences, performance, when to use each, and iteration operations"
         },
         {
           "id": "main-7-3",
-          "title": "Socket Programming",
-          "description": "Introducing Socket and ServerSocket classes for creating network connections between applications."
+          "title": "HashMap and LinkedHashMap",
+          "description": "Key-value pairs, iteration, retrieving values, and map methods"
         },
         {
           "id": "main-7-4",
-          "title": "JSON Parsing",
-          "description": "Teaching how to parse JSON data received over the network using libraries like Gson in Java."
+          "title": "HashSet and TreeSet",
+          "description": "Unique elements, sorting, navigating through elements, and set operations"
         }
       ]
     }
